@@ -400,7 +400,7 @@
     .business-inner { max-width: 1200px; margin: 0 auto; }
 
     .business-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px;
       margin-top: 80px;
     }
 
@@ -553,6 +553,173 @@
       font-family: 'Noto Serif JP', serif;
       font-size: 13px; font-weight: 200; line-height: 2.2;
       color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── CONTACT CENTER ─── */
+    #contact-center {
+      background: #080F0F;
+      position: relative;
+    }
+    #contact-center::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 100% 0%, rgba(129,216,208,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 0% 100%, rgba(129,216,208,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cc-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+
+    /* Channel badges */
+    .cc-channels {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin: 60px 0 80px;
+    }
+    .cc-badge {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px;
+      border: 1px solid rgba(129,216,208,0.25);
+      background: rgba(129,216,208,0.04);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 300; letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      transition: border-color 0.3s, background 0.3s, color 0.3s;
+    }
+    .cc-badge:hover {
+      border-color: var(--tiffany);
+      background: rgba(129,216,208,0.1);
+      color: var(--tiffany);
+    }
+    .cc-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--tiffany);
+      flex-shrink: 0;
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.4); }
+    }
+
+    /* BPO cards */
+    .cc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-bottom: 80px;
+    }
+    .cc-card {
+      padding: 44px 36px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(129,216,208,0.1);
+      position: relative; overflow: hidden;
+      transition: background 0.4s, border-color 0.4s, transform 0.4s;
+    }
+    .cc-card:hover {
+      background: rgba(129,216,208,0.05);
+      border-color: rgba(129,216,208,0.35);
+      transform: translateY(-4px);
+    }
+    .cc-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 300;
+      color: rgba(129,216,208,0.08); line-height: 1;
+      margin-bottom: 16px;
+    }
+    .cc-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px; font-weight: 300; letter-spacing: 0.15em;
+      color: var(--tiffany); margin-bottom: 14px;
+    }
+    .cc-card-desc {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px; font-weight: 200; line-height: 2.3;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Flow */
+    .cc-flow {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; margin-top: 16px;
+      border: 1px solid rgba(129,216,208,0.12);
+    }
+    .cc-flow-step {
+      padding: 36px 24px; text-align: center;
+      position: relative;
+      border-right: 1px solid rgba(129,216,208,0.08);
+    }
+    .cc-flow-step:last-child { border-right: none; }
+    .cc-flow-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300;
+      color: rgba(129,216,208,0.2); margin-bottom: 8px;
+    }
+    .cc-flow-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px; font-weight: 300; letter-spacing: 0.15em;
+      color: var(--tiffany); margin-bottom: 10px;
+    }
+    .cc-flow-desc {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px; font-weight: 200; line-height: 2;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Omni visual */
+    .cc-omni {
+      margin-top: 80px;
+      padding: 56px 60px;
+      background: rgba(129,216,208,0.03);
+      border: 1px solid rgba(129,216,208,0.12);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .cc-omni-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px,3vw,40px); font-weight: 300;
+      line-height: 1.3; margin-bottom: 20px;
+    }
+    .cc-omni-title em { font-style: italic; color: var(--tiffany); }
+    .cc-omni-desc {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px; font-weight: 200; line-height: 2.4;
+      color: rgba(255,255,255,0.55);
+    }
+    .cc-omni-diagram {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .cc-omni-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.02);
+      border-left: 2px solid var(--tiffany);
+    }
+    .cc-omni-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(129,216,208,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .cc-omni-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 300; letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.6);
+      flex: 1;
+    }
+    .cc-omni-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 300; letter-spacing: 0.2em;
+      color: var(--tiffany);
+      border: 1px solid rgba(129,216,208,0.3);
+      padding: 3px 10px;
+    }
+
+    /* Responsive additions */
+    @media (max-width: 900px) {
+      .cc-grid { grid-template-columns: 1fr; }
+      .cc-flow { grid-template-columns: 1fr 1fr; }
+      .cc-omni { grid-template-columns: 1fr; }
+      .business-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── CTA BAND ─── */
@@ -795,6 +962,7 @@
     <a href="#about">About</a>
     <a href="#business">Business</a>
     <a href="#franchise">Franchise</a>
+    <a href="#contact-center">Contact Center</a>
     <a href="#company">Company</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </nav>
@@ -817,8 +985,8 @@
     <p class="hero-subtitle-jp">新しい価値と繋がりを、世界へ。</p>
     <div class="hero-divider"></div>
     <p class="hero-desc">
-      インターネット上のショッピングモール開設と<br />
-      フランチャイズ事業を通じて、<br />
+      ショッピングモール・フランチャイズ・<br />
+      コンタクトセンターBPOの3事業で、<br />
       ビジネスの可能性を広げます。
     </p>
     <div class="hero-btns">
@@ -840,7 +1008,7 @@
       <h2 class="section-title reveal reveal-delay-1">デジタルと<br />リアルを繋ぐ</h2>
       <p class="section-title-jp reveal reveal-delay-1">Connecting Digital & Real</p>
       <p class="reveal reveal-delay-2">
-        ゼーレマン合同会社は、東京を拠点にインターネット上のショッピングモール開設とフランチャイズビジネスの支援を行う会社です。
+        ゼーレマン合同会社は、東京を拠点にインターネット上のショッピングモール開設・フランチャイズビジネス支援・コンタクトセンターBPOの3事業を展開する会社です。
       </p>
       <p class="reveal reveal-delay-2">
         デジタル空間の無限の可能性とリアルビジネスの確かな価値を融合させ、パートナー企業と共に新たな市場を創造します。
@@ -859,7 +1027,7 @@
         <div class="stat-label">資本金</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">メイン事業</div>
       </div>
       <div class="stat-box">
@@ -901,11 +1069,21 @@
           フランチャイズチェーン展開を検討されている企業様への加盟店募集支援と、既存加盟店への継続的な指導・サポートを提供。独自のノウハウと豊富な経験で、チェーンビジネスの成功を共に目指します。
         </p>
       </div>
+      <!-- Card 3 -->
+      <div class="business-card reveal reveal-delay-3">
+        <span class="bc-num">03</span>
+        <div class="bc-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <p class="bc-en">Contact Center BPO</p>
+        <h3 class="bc-title">コンタクトセンター<br />BPO受託</h3>
+        <p class="bc-desc">
+          電話・メール・LINE・Telegram・KakaoTalk・SMSを横断するオムニチャネル対応のコンタクトセンター業務をBPOで受託。ECサイト・リアル店舗への顧客誘導まで一貫してサポートします。
+        </p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ─── FRANCHISE ─── -->
 <section id="franchise">
   <div class="franchise-inner">
     <p class="section-label reveal">Franchise Program</p>
@@ -963,6 +1141,142 @@
   </div>
 </section>
 
+<!-- ─── CONTACT CENTER ─── -->
+<section id="contact-center">
+  <div class="cc-inner">
+    <p class="section-label reveal">Contact Center BPO</p>
+    <h2 class="section-title reveal reveal-delay-1">コンタクトセンター</h2>
+    <p class="section-title-jp reveal reveal-delay-1">Omnichannel Customer Support BPO</p>
+
+    <!-- Channel badges -->
+    <div class="cc-channels reveal reveal-delay-2">
+      <div class="cc-badge"><span class="cc-badge-dot"></span>電話</div>
+      <div class="cc-badge"><span class="cc-badge-dot"></span>メール</div>
+      <div class="cc-badge"><span class="cc-badge-dot"></span>LINE</div>
+      <div class="cc-badge"><span class="cc-badge-dot"></span>Telegram</div>
+      <div class="cc-badge"><span class="cc-badge-dot"></span>KakaoTalk</div>
+      <div class="cc-badge"><span class="cc-badge-dot"></span>SMS</div>
+    </div>
+
+    <!-- BPO service cards -->
+    <div class="cc-grid">
+      <div class="cc-card reveal">
+        <div class="cc-card-num">01</div>
+        <div class="cc-card-title">インバウンド対応</div>
+        <div class="cc-card-desc">
+          ECサイト・リアル店舗からの問い合わせ・注文受付・クレーム対応を全チャネルで一元管理。顧客満足度（CSAT）の最大化を追求します。
+        </div>
+      </div>
+      <div class="cc-card reveal reveal-delay-1">
+        <div class="cc-card-num">02</div>
+        <div class="cc-card-title">リアル店舗誘導支援</div>
+        <div class="cc-card-desc">
+          オンライン接客からリアル店舗への来店予約・誘導まで、OMO（Online Merges with Offline）戦略を実現するコンタクト対応を担います。
+        </div>
+      </div>
+      <div class="cc-card reveal reveal-delay-2">
+        <div class="cc-card-num">03</div>
+        <div class="cc-card-title">アウトバウンド＆CRM</div>
+        <div class="cc-card-desc">
+          購買後フォロー・リテンション施策・休眠顧客の掘り起こしなど、顧客ライフタイムバリュー（LTV）向上を目的としたアウトバウンド対応を提供します。
+        </div>
+      </div>
+      <div class="cc-card reveal">
+        <div class="cc-card-num">04</div>
+        <div class="cc-card-title">チャット・SNS対応</div>
+        <div class="cc-card-desc">
+          LINE公式アカウント・Telegram・KakaoTalk・SMS等のメッセージングアプリを活用した次世代型カスタマーサポートを構築・運営します。
+        </div>
+      </div>
+      <div class="cc-card reveal reveal-delay-1">
+        <div class="cc-card-num">05</div>
+        <div class="cc-card-title">BPO一括受託</div>
+        <div class="cc-card-desc">
+          要員確保・教育・品質管理・レポーティングまでをワンストップで受託。クライアント企業のコア業務集中と運営コスト最適化を実現します。
+        </div>
+      </div>
+      <div class="cc-card reveal reveal-delay-2">
+        <div class="cc-card-num">06</div>
+        <div class="cc-card-title">品質管理・改善提案</div>
+        <div class="cc-card-desc">
+          定期的なモニタリング・スクリプト改善・KPI分析レポートの提供により、応対品質を継続的に向上させるPDCAサイクルを運用します。
+        </div>
+      </div>
+    </div>
+
+    <!-- Omni channel visual -->
+    <div class="cc-omni reveal reveal-delay-1">
+      <div>
+        <h3 class="cc-omni-title">なぜ<em>「コンタクトセンター」</em><br />と呼ぶのか</h3>
+        <p class="cc-omni-desc">
+          従来の「コールセンター」は電話対応が中心でした。しかし現代の顧客接点は電話だけではありません。<br /><br />
+          LINEで問い合わせ、SMSで予約確認を受け取り、Telegramで画像を送付する——顧客はチャネルを自由に選びます。<br /><br />
+          ゼーレマンのコンタクトセンターは、すべてのチャネルを横断して顧客満足を最大化するオムニチャネル対応を提供します。
+        </p>
+      </div>
+      <div class="cc-omni-diagram">
+        <div class="cc-omni-row">
+          <div class="cc-omni-icon">📞</div>
+          <span class="cc-omni-label">電話 / Phone</span>
+          <span class="cc-omni-tag">Traditional</span>
+        </div>
+        <div class="cc-omni-row">
+          <div class="cc-omni-icon">✉️</div>
+          <span class="cc-omni-label">メール / Email</span>
+          <span class="cc-omni-tag">Standard</span>
+        </div>
+        <div class="cc-omni-row">
+          <div class="cc-omni-icon">💬</div>
+          <span class="cc-omni-label">LINE / Telegram</span>
+          <span class="cc-omni-tag">Messaging</span>
+        </div>
+        <div class="cc-omni-row">
+          <div class="cc-omni-icon">🇰🇷</div>
+          <span class="cc-omni-label">KakaoTalk</span>
+          <span class="cc-omni-tag">Global</span>
+        </div>
+        <div class="cc-omni-row">
+          <div class="cc-omni-icon">📱</div>
+          <span class="cc-omni-label">SMS / テキスト</span>
+          <span class="cc-omni-tag">Direct</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flow -->
+    <div style="margin-top:80px;">
+      <p class="section-label reveal" style="margin-bottom:16px;">BPO導入の流れ</p>
+    </div>
+    <div class="cc-flow reveal reveal-delay-1">
+      <div class="cc-flow-step">
+        <div class="cc-flow-num">01</div>
+        <div class="cc-flow-title">ヒアリング</div>
+        <div class="cc-flow-desc">業務内容・目標KPI・対応チャネルをご確認</div>
+      </div>
+      <div class="cc-flow-step">
+        <div class="cc-flow-num">02</div>
+        <div class="cc-flow-title">設計・提案</div>
+        <div class="cc-flow-desc">最適な運用体制・スクリプト・ツールを設計</div>
+      </div>
+      <div class="cc-flow-step">
+        <div class="cc-flow-num">03</div>
+        <div class="cc-flow-title">要員確保・研修</div>
+        <div class="cc-flow-desc">採用・育成・品質チェックを実施</div>
+      </div>
+      <div class="cc-flow-step">
+        <div class="cc-flow-num">04</div>
+        <div class="cc-flow-title">稼働開始</div>
+        <div class="cc-flow-desc">全チャネル同時対応でサービスイン</div>
+      </div>
+      <div class="cc-flow-step">
+        <div class="cc-flow-num">05</div>
+        <div class="cc-flow-title">改善・報告</div>
+        <div class="cc-flow-desc">月次レポートとPDCAで継続改善</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CTA ─── -->
 <section id="cta">
   <p class="section-label reveal" style="justify-content:center;">Let's Start</p>
@@ -970,7 +1284,7 @@
     新しいビジネスの<br />可能性を一緒に。
   </h2>
   <p class="cta-desc reveal reveal-delay-2">
-    ショッピングモールへの出店、フランチャイズへの加盟など、<br />ビジネスに関するご相談はお気軽にお問い合わせください。
+    ショッピングモールへの出店、フランチャイズへの加盟、<br />コンタクトセンターBPOの委託など、<br />ビジネスに関するご相談はお気軽にお問い合わせください。
   </p>
   <div class="cta-btns reveal reveal-delay-3">
     <a href="#contact" class="cta-btn-dark">お問い合わせはこちら</a>
@@ -1004,7 +1318,12 @@
       <tr>
         <td>資本金</td>
         <td>金900万円</td>
-      </tr>      <tr>
+      </tr>
+      <tr>
+        <td>代表社員</td>
+        <td>村井 将重</td>
+      </tr>
+      <tr>
         <td>本店所在地</td>
         <td>〒111-0041<br />東京都台東区元浅草一丁目6番12号 221号室</td>
       </tr>
@@ -1087,7 +1406,8 @@
         <li><a href="#business">ショッピングモール</a></li>
         <li><a href="#franchise">フランチャイズ加盟</a></li>
         <li><a href="#franchise">加盟店サポート</a></li>
-        <li><a href="#contact">出店のご相談</a></li>
+        <li><a href="#contact-center">コンタクトセンターBPO</a></li>
+        <li><a href="#contact">出店・BPOのご相談</a></li>
       </ul>
     </div>
   </div>
